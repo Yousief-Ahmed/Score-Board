@@ -18,5 +18,6 @@ class SlidePageRoute<T> extends PageRouteBuilder<T> {
             child: child,
           );
         },
+        transitionDuration: const Duration(milliseconds: 400),
       );
 }

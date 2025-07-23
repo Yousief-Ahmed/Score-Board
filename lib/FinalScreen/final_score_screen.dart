@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skrew/Cubit/textfield_cubit.dart';
+import 'package:skrew/constants.dart';
 
 class FinalScoreScreen extends StatelessWidget {
   const FinalScoreScreen({super.key});
@@ -52,9 +53,3 @@ class FinalScoreScreen extends StatelessWidget {
   }
 }
 
-final crownStyle = TextStyle(fontWeight: FontWeight.bold, fontSize: 14.sp);
-final notCrownStyle = TextStyle(
-  color: Colors.white,
-  fontWeight: FontWeight.bold,
-  fontSize: 14.sp,
-);

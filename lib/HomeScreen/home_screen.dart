@@ -3,19 +3,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skrew/Cubit/textfield_cubit.dart';
 import 'package:skrew/Cubit/textfield_states.dart';
-import 'package:skrew/HomeScreen/start_button.dart';
-import 'package:skrew/HomeScreen/home_text_field.dart';
+import 'package:skrew/HomeScreen/home_screen_builder.dart';
 import 'package:skrew/constants.dart';
-import 'package:flutter_screenutil/src/screen_util.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     final playercubit = BlocProvider.of<TextfieldCubit>(context);
     return Scaffold(
-      appBar: AppBar(title: Text(constants.appName)),
+      appBar: AppBar(title: Text(Constants.appName)),
       body: ScreenUtilInit(
         builder:
             (context, child) => Padding(
@@ -25,11 +23,8 @@ class HomePage extends StatelessWidget {
                 spacing: 12.h,
                 children: [
                   Text(
-                    constants.playerNameLabel,
-                    style: TextStyle(
-                      color: constants.textColor,
-                      fontSize: 15.sp,
-                    ),
+                    Constants.playerNameLabel,
+                    style: Constants.homeTextStyle,
                   ),
                   BlocBuilder<TextfieldCubit, TextfieldStates>(
                     builder: (context, state) {
@@ -39,14 +34,7 @@ class HomePage extends StatelessWidget {
                           shrinkWrap: true,
                           itemCount: playercubit.players.length + 1,
                           itemBuilder: (context, index) {
-                            if (index == playercubit.players.length) {
-                              return StartButton();
-                            } else {
-                              return HomeTextField(
-                                playerCounter: index + 1,
-                                index: index,
-                              );
-                            }
+                            return HomeScreenBuilder(index: index);
                           },
                         ),
                       );

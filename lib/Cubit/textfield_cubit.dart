@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:skrew/Cubit/textfield_cubit.dart';
 import 'package:skrew/Cubit/textfield_states.dart';
-import 'package:skrew/ScoreScreen/score_screen.dart';
-import 'package:skrew/constants.dart';
-import 'package:skrew/custom_route.dart';
 
 class TextfieldCubit extends Cubit<TextfieldStates> {
   TextfieldCubit() : super(InitialTextfieldState()) {
@@ -108,7 +104,7 @@ class TextfieldCubit extends Cubit<TextfieldStates> {
       player['total']?.clear();
     });
     roundCount = 1; // Reset round count
-    Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+    Navigator.pushNamedAndRemoveUntil(context, 'home', (route) => false);
     emit(HomeButton());
   }
 

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skrew/Cubit/textfield_cubit.dart';
-
-import 'package:skrew/HomeScreen/home_page.dart';
 import 'package:skrew/myTheme.dart';
 import 'package:skrew/routes.dart';
 import 'constants.dart';
@@ -13,6 +10,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
         theme: myTheme,
         navigatorKey: navigatorKey,
         onGenerateRoute: AppRoutes.generateRoute,
-        initialRoute: '/',
+        initialRoute: 'home',
       ),
     );
   }

@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skrew/Cubit/textfield_cubit.dart';
-import 'package:skrew/ScoreScreen/score_screen.dart';
 import 'package:skrew/constants.dart';
 
 class StartButton extends StatelessWidget {
@@ -18,14 +16,14 @@ class StartButton extends StatelessWidget {
         children: [
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: constants.buttonColor,
+              backgroundColor: Constants.buttonColor,
             ),
             onPressed: () {
               playerscubit.startGame(context);
             },
             child: Text(
-              constants.startGameButton,
-              style: TextStyle(color: constants.textColor, fontSize: 14.sp),
+              Constants.startGameButton,
+              style: TextStyle(color: Constants.textColor, fontSize: 14.sp),
             ),
           ),
         ],
@@ -33,4 +31,3 @@ class StartButton extends StatelessWidget {
     );
   }
 }
-

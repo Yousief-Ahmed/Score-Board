@@ -9,8 +9,7 @@ class HomeTextField extends StatelessWidget {
   final int? playerCounter;
   final int index; // Nullable to allow for dynamic addition/removal
 
-  HomeTextField({Key? key, this.playerCounter, required this.index})
-    : super(key: key);
+  const HomeTextField({super.key, this.playerCounter, required this.index});
   @override
   Widget build(BuildContext context) {
     final playersCubit = BlocProvider.of<TextfieldCubit>(context);
@@ -21,7 +20,7 @@ class HomeTextField extends StatelessWidget {
         decoration: InputDecoration(
           labelText: 'Player $playerCounter',
           labelStyle: TextStyle(
-            color: constants.textColor,
+            color: Constants.textColor,
             fontSize: 15.sp,
             fontWeight: FontWeight.w300,
           ),
@@ -47,11 +46,11 @@ class HomeTextField extends StatelessWidget {
           ),
           border: OutlineInputBorder(),
         ),
-        cursorColor: constants.textColor,
+        cursorColor: Constants.textColor,
         keyboardType: TextInputType.text,
         textInputAction: TextInputAction.done,
         style: TextStyle(
-          color: constants.textColor,
+          color: Constants.textColor,
           fontSize: 15.sp,
           fontWeight: FontWeight.w300,
         ),

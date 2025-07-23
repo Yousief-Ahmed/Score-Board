@@ -24,16 +24,16 @@ class ScoreTextfield extends StatelessWidget {
             decoration: InputDecoration(
               hintText: totalScoreController?.text ?? "0",
               hintStyle: TextStyle(
-                color: constants.textColor.withOpacity(0.5),
+                color: Constants.textColor.withOpacity(0.5),
                 fontSize: 15.sp,
               ),
               border: OutlineInputBorder(),
             ),
-            cursorColor: constants.textColor,
+            cursorColor: Constants.textColor,
             keyboardType: TextInputType.number,
             textInputAction: TextInputAction.done,
             style: TextStyle(
-              color: constants.textColor,
+              color: Constants.textColor,
               fontSize: 14.sp,
               fontWeight: FontWeight.bold,
             ),
