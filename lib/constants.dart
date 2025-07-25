@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Constants {
+  static const double wideButtonDivisor = 2.2;
+  static const double narrowButtonDivisor = 2.4;
   static const String appName = "Score board";
   static const String playerNameLabel = "Enter Player Name";
   static const String startGameButton = "Start Game";
   static const String resetButton = "Reset";
   static const String scoreLabel = "Score : ";
-  static const splashImage='assets/images/splash_screen_logo.png';
+  static const splashImage = 'assets/images/splash_screen_logo.png';
   static Color backgroundColor = const Color(
     0xFF_240E52,
   ); // لون الخلفية العامة للتطبيق

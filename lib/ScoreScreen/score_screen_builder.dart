@@ -43,7 +43,9 @@ class ScoreScreenBuilder extends StatelessWidget {
           alignment: WrapAlignment.center,
           children: [
             SizedBox(
-              width: MediaQuery.of(context).size.width / 2.2,
+              width:
+                  MediaQuery.of(context).size.width /
+                  Constants.wideButtonDivisor,
               child: CustomButton(
                 text: "🔄 Reset Scores",
                 onPressed: () => playersCubit.resetScores(),
@@ -51,7 +53,9 @@ class ScoreScreenBuilder extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: MediaQuery.of(context).size.width / 2.4,
+              width:
+                  MediaQuery.of(context).size.width /
+                  Constants.narrowButtonDivisor,
               child: CustomButton(
                 text: "⏱ New Round",
                 onPressed: () => playersCubit.newRound(),
@@ -59,7 +63,9 @@ class ScoreScreenBuilder extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: MediaQuery.of(context).size.width / 2.2,
+              width:
+                  MediaQuery.of(context).size.width /
+                  Constants.wideButtonDivisor,
               child: CustomButton(
                 text: "📊 Final Scores",
                 onPressed: () => playersCubit.finalScore(context),
@@ -67,7 +73,9 @@ class ScoreScreenBuilder extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: MediaQuery.of(context).size.width / 2.4,
+              width:
+                  MediaQuery.of(context).size.width /
+                  Constants.narrowButtonDivisor,
               child: CustomButton(
                 text: "🏠 Home",
                 onPressed: () => playersCubit.homeButton(context),

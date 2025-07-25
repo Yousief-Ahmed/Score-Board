@@ -48,7 +48,6 @@ class HomeTextField extends StatelessWidget {
         ),
         cursorColor: Constants.textColor,
         keyboardType: TextInputType.text,
-        textInputAction: TextInputAction.done,
         style: TextStyle(
           color: Constants.textColor,
           fontSize: 15.sp,
