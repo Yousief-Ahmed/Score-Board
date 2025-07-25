@@ -42,25 +42,37 @@ class ScoreScreenBuilder extends StatelessWidget {
           runSpacing: 5.h,
           alignment: WrapAlignment.center,
           children: [
-            CustomButton(
-              text: "🔄 Reset Scores",
-              onPressed: () => playersCubit.resetScores(),
-              color: Colors.redAccent,
+            SizedBox(
+              width: MediaQuery.of(context).size.width / 2.2,
+              child: CustomButton(
+                text: "🔄 Reset Scores",
+                onPressed: () => playersCubit.resetScores(),
+                color: Colors.redAccent,
+              ),
             ),
-            CustomButton(
-              text: "⏱ New Round",
-              onPressed: () => playersCubit.newRound(),
-              color: Colors.green,
+            SizedBox(
+              width: MediaQuery.of(context).size.width / 2.4,
+              child: CustomButton(
+                text: "⏱ New Round",
+                onPressed: () => playersCubit.newRound(),
+                color: Colors.green,
+              ),
             ),
-            CustomButton(
-              text: "📊 Final Scores",
-              onPressed: () => playersCubit.finalScore(context),
-              color: Colors.amber,
+            SizedBox(
+              width: MediaQuery.of(context).size.width / 2.2,
+              child: CustomButton(
+                text: "📊 Final Scores",
+                onPressed: () => playersCubit.finalScore(context),
+                color: Colors.amber,
+              ),
             ),
-            CustomButton(
-              text: "🏠 Home",
-              onPressed: () => playersCubit.homeButton(context),
-              color: Colors.blue,
+            SizedBox(
+              width: MediaQuery.of(context).size.width / 2.4,
+              child: CustomButton(
+                text: "🏠 Home",
+                onPressed: () => playersCubit.homeButton(context),
+                color: Colors.blue,
+              ),
             ),
           ],
         ),
