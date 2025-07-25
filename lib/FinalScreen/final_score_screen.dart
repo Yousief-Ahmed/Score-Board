@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skrew/Cubit/textfield_cubit.dart';
 import 'package:skrew/FinalScreen/final_score_screen_builder.dart';
-import 'package:skrew/constants.dart';
 
 class FinalScoreScreen extends StatelessWidget {
   const FinalScoreScreen({super.key});

@@ -109,7 +109,16 @@ class TextfieldCubit extends Cubit<TextfieldStates> {
   }
 
   void finalScore(BuildContext context) {
-    newRound();
+    for (var player in players) {
+      final currentScore = int.tryParse(player['score']?.text ?? "0") ?? 0;
+      final total = int.tryParse(player['total']?.text ?? "0") ?? 0;
+      player['total']?.text =
+          (total + currentScore).toString(); // Update total score
+    }
+    players.forEach((player) {
+      player['score']?.text = ""; // Clear the score for the new round
+    });
+
     Navigator.pushNamed(context, 'final');
   }
 }
