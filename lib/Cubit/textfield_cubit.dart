@@ -33,14 +33,30 @@ class TextfieldCubit extends Cubit<TextfieldStates> {
     emit(AddTextField());
   }
 
-  void removePlayer(int index) {
-    if (players.length > 1) {
+  void removePlayer(int index, BuildContext context) {
+    if (players.length > 2) {
       players.removeAt(index);
       playerCount--; // Decrement the player count
       emit(RemoveTextField());
-    }
-    if (players.length == 1) {
-      players[0]['name']?.text = '';
+    } else {
+      // Optionally, show a dialog here using showDialog if you want to notify the user.
+      // Example:
+      players[index]['name']?.text = '';
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          duration: Duration(milliseconds: 1000),
+          content: Text(
+            "Two fields at least are required",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16.sp,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          backgroundColor: Colors.redAccent,
+        ),
+      );
     }
   }
 

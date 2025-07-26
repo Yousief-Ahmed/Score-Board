@@ -29,7 +29,7 @@ class HomeTextField extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () {
-                  playersCubit.removePlayer(index);
+                  playersCubit.removePlayer(index,context);
                   if (playersCubit.players.length == 1) {
                     playersCubit.players[0]['name']?.text = '';
                   }
