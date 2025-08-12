@@ -8,6 +8,7 @@ class TextfieldCubit extends Cubit<TextfieldStates> {
     initPlayers(2);
   }
   List<Map<String, TextEditingController>> players = [];
+  List<FocusNode> focusNodes = [];
   void initPlayers(int count) {
     players = List.generate(count, (_) {
       return {
@@ -16,6 +17,7 @@ class TextfieldCubit extends Cubit<TextfieldStates> {
         'total': TextEditingController(text: "0"), // Initialize total score
       };
     });
+    focusNodes = List.generate(count, (_) => FocusNode());
     emit(InitialTextfieldState());
   }
 
@@ -29,6 +31,7 @@ class TextfieldCubit extends Cubit<TextfieldStates> {
       'total': TextEditingController(), // Initialize total score
     });
     playerCount++; // Increment the player count
+    focusNodes.add(FocusNode());
     print("playerCount: $playerCount");
     emit(AddTextField());
   }
@@ -36,6 +39,7 @@ class TextfieldCubit extends Cubit<TextfieldStates> {
   void removePlayer(int index, BuildContext context) {
     if (players.length > 2) {
       players.removeAt(index);
+      focusNodes.removeAt(index);
       playerCount--; // Decrement the player count
       emit(RemoveTextField());
     } else {

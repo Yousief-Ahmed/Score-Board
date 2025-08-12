@@ -12,11 +12,16 @@ class HomeTextField extends StatelessWidget {
   const HomeTextField({super.key, this.playerCounter, required this.index});
   @override
   Widget build(BuildContext context) {
-    final playersCubit = BlocProvider.of<TextfieldCubit>(context);
+    final playerCubit = BlocProvider.of<TextfieldCubit>(context);
     return Padding(
       padding: EdgeInsets.all(6.0),
       child: TextField(
-        controller: playersCubit.players[index]['name'],
+        focusNode: playerCubit.focusNodes[index],
+        controller: playerCubit.players[index]['name'],
+        textInputAction:
+            index == playerCubit.players.length - 1
+                ? TextInputAction.done
+                : TextInputAction.next,
         decoration: InputDecoration(
           labelText: 'Player $playerCounter',
           labelStyle: TextStyle(
@@ -29,16 +34,16 @@ class HomeTextField extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () {
-                  playersCubit.removePlayer(index, context);
-                  if (playersCubit.players.length == 1) {
-                    playersCubit.players[0]['name']?.text = '';
+                  playerCubit.removePlayer(index, context);
+                  if (playerCubit.players.length == 1) {
+                    playerCubit.players[0]['name']?.text = '';
                   }
                 },
                 icon: Icon(Icons.delete),
               ),
               IconButton(
                 onPressed: () {
-                  playersCubit.addPlayer();
+                  playerCubit.addPlayer();
                 },
                 icon: Icon(Icons.add),
               ),
@@ -54,6 +59,15 @@ class HomeTextField extends StatelessWidget {
           fontWeight: FontWeight.w300,
         ),
         onChanged: (value) {},
+        onSubmitted: (_) {
+          if (index < playerCubit.players.length - 1) {
+            FocusScope.of(
+              context,
+            ).requestFocus(playerCubit.focusNodes[index + 1]);
+          } else {
+            FocusScope.of(context).unfocus();
+          }
+        },
       ),
     );
   }

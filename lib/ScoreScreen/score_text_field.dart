@@ -19,6 +19,7 @@ class ScoreTextfield extends StatelessWidget {
       child: BlocBuilder<TextfieldCubit, TextfieldStates>(
         builder: (context, state) {
           return TextField(
+            focusNode: playerCubit.focusNodes[index],
             inputFormatters: [FilteringTextInputFormatter.digitsOnly],
             controller: scoreController,
             decoration: InputDecoration(
@@ -31,13 +32,25 @@ class ScoreTextfield extends StatelessWidget {
             ),
             cursorColor: Constants.textColor,
             keyboardType: TextInputType.number,
-            textInputAction: TextInputAction.done,
+            textInputAction:
+                index == playerCubit.players.length - 1
+                    ? TextInputAction.done
+                    : TextInputAction.next,
             style: TextStyle(
               color: Constants.textColor,
               fontSize: 14.sp,
               fontWeight: FontWeight.bold,
             ),
             onChanged: (value) {},
+            onSubmitted: (_) {
+              if (index < playerCubit.players.length - 1) {
+                FocusScope.of(
+                  context,
+                ).requestFocus(playerCubit.focusNodes[index + 1]);
+              } else {
+                FocusScope.of(context).unfocus();
+              }
+            },
           );
         },
       ),
