@@ -16,6 +16,7 @@
   - Bloc and Cubit for state management .
   - Route for navigation betwween pages .
   - Splash Screen and App Icon .
+  - Responsive design .
 # Screen Shots from the app : 
 <img width="351" height="745" alt="image" src="https://github.com/user-attachments/assets/2f7d8e16-c209-46d1-9a2c-ece12c740fd4" />
 <img width="351" height="745" alt="image" src="https://github.com/user-attachments/assets/0c6d91d2-a6ed-4f1a-bb26-e02c59796256" />
