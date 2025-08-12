@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:skrew/Cubit/textfield_cubit.dart';
-import 'package:skrew/ScoreScreen/score_text_field.dart';
-import 'package:skrew/constants.dart';
-import 'package:skrew/custom_button.dart';
+import 'package:score_board/Cubit/textfield_cubit.dart';
+import 'package:score_board/ScoreScreen/score_text_field.dart';
+import 'package:score_board/constants.dart';
+import 'package:score_board/custom_button.dart';
 
 class ScoreScreenBuilder extends StatelessWidget {
   final int index;

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:skrew/Cubit/textfield_cubit.dart';
+import 'package:score_board/Cubit/textfield_cubit.dart';
 
-import 'package:skrew/constants.dart';
+import 'package:score_board/constants.dart';
 
 class HomeTextField extends StatelessWidget {
   final int? playerCounter;
@@ -29,7 +29,7 @@ class HomeTextField extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () {
-                  playersCubit.removePlayer(index,context);
+                  playersCubit.removePlayer(index, context);
                   if (playersCubit.players.length == 1) {
                     playersCubit.players[0]['name']?.text = '';
                   }

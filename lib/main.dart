@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skrew/Cubit/textfield_cubit.dart';
-import 'package:skrew/myTheme.dart';
-import 'package:skrew/routes.dart';
+import 'package:score_board/Cubit/textfield_cubit.dart';
+import 'package:score_board/myTheme.dart';
+import 'package:score_board/routes.dart';
 import 'constants.dart';
 
 void main() {

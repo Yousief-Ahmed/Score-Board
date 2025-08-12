@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skrew/Cubit/textfield_cubit.dart';
-import 'package:skrew/HomeScreen/home_text_field.dart';
-import 'package:skrew/HomeScreen/start_button.dart';
+import 'package:score_board/Cubit/textfield_cubit.dart';
+import 'package:score_board/HomeScreen/home_text_field.dart';
+import 'package:score_board/HomeScreen/start_button.dart';
 
 class HomeScreenBuilder extends StatelessWidget {
   final int index;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:skrew/Cubit/textfield_states.dart';
+import 'package:score_board/Cubit/textfield_states.dart';
 
 class TextfieldCubit extends Cubit<TextfieldStates> {
   TextfieldCubit() : super(InitialTextfieldState()) {
@@ -106,19 +106,19 @@ class TextfieldCubit extends Cubit<TextfieldStates> {
       player['total']?.text =
           (total + currentScore).toString(); // Update total score
     }
-    players.forEach((player) {
+    for (var player in players) {
       player['score']?.text = ""; // Clear the score for the new round
-    });
+    }
     roundCount++;
     emit(NewRound());
   }
 
   void homeButton(BuildContext context) {
-    players.forEach((player) {
+    for (var player in players) {
       player['name']?.clear(); // Dispose of the controllers
       player['score']?.clear();
       player['total']?.clear();
-    });
+    }
     roundCount = 1; // Reset round count
     Navigator.pushNamedAndRemoveUntil(context, 'home', (route) => false);
     emit(HomeButton());
@@ -131,9 +131,9 @@ class TextfieldCubit extends Cubit<TextfieldStates> {
       player['total']?.text =
           (total + currentScore).toString(); // Update total score
     }
-    players.forEach((player) {
+    for (var player in players) {
       player['score']?.text = ""; // Clear the score for the new round
-    });
+    }
 
     Navigator.pushNamed(context, 'final');
   }
