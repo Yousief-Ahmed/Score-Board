@@ -8,7 +8,9 @@
 # Features : 
   - You can add many players as much as you can and customize the names or have it on default if you wish .
   - You can simply reset the score and start a new game without the need to go back to the home screen .
-  - You can easily go back to any step and continue from where you stopped and still maintain your progress . 
+  - You can easily go back to any step and continue from where you stopped and still maintain your progress .
+  - Even in the middle of the gane you can easily track your score till the middle of the round .
+  - A defalut score of zero is added upon starting a new round if no score was added .
 # Technology used : 
   - Flutter framework .
   - Bloc and Cubit for state management .
