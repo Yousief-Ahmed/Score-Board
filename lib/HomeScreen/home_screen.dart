@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:score_board/Cubit/textfield_cubit.dart';
 import 'package:score_board/Cubit/textfield_states.dart';
 import 'package:score_board/HomeScreen/home_screen_builder.dart';
-import 'package:score_board/constants.dart';
+import 'package:score_board/Core/constants.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

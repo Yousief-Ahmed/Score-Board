@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:score_board/Cubit/textfield_cubit.dart';
-import 'package:score_board/constants.dart';
-import 'package:score_board/custom_button.dart';
+import 'package:score_board/Core/constants.dart';
+import 'package:score_board/Core/custom_button.dart';
 
 class FinalScoreScreenBuilder extends StatelessWidget {
   final int index;

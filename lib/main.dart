@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:score_board/Cubit/textfield_cubit.dart';
-import 'package:score_board/myTheme.dart';
-import 'package:score_board/routes.dart';
-import 'constants.dart';
+import 'package:score_board/Core/myTheme.dart';
+import 'package:score_board/Core/routes.dart';
+import 'Core/constants.dart';
 
 void main() {
   runApp(MyApp());

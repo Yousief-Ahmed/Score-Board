@@ -8,21 +8,23 @@ class TextfieldCubit extends Cubit<TextfieldStates> {
     initPlayers(2);
   }
   List<Map<String, TextEditingController>> players = [];
-  List<FocusNode> focusNodes = [];
+  List<FocusNode> nameFocusNodes = [];
+  List<FocusNode> scoreFocusNodes = [];
+  int playerCount = 2;
+  int roundCount = 1;
+
   void initPlayers(int count) {
     players = List.generate(count, (_) {
       return {
         'name': TextEditingController(),
         'score': TextEditingController(),
-        'total': TextEditingController(text: "0"), // Initialize total score
+        'total': TextEditingController(text: "0"),
       };
     });
-    focusNodes = List.generate(count, (_) => FocusNode());
+    nameFocusNodes = List.generate(count, (_) => FocusNode());
+    scoreFocusNodes = List.generate(count, (_) => FocusNode());
     emit(InitialTextfieldState());
   }
-
-  int playerCount = 2; // Initialize with one player
-  int roundCount = 1; // Initialize with one round
 
   void addPlayer() {
     players.add({
@@ -31,20 +33,26 @@ class TextfieldCubit extends Cubit<TextfieldStates> {
       'total': TextEditingController(), // Initialize total score
     });
     playerCount++; // Increment the player count
-    focusNodes.add(FocusNode());
+    nameFocusNodes.add(FocusNode());
+    scoreFocusNodes.add(FocusNode());
     print("playerCount: $playerCount");
     emit(AddTextField());
   }
 
   void removePlayer(int index, BuildContext context) {
     if (players.length > 2) {
+      players[index]['name']?.dispose();
+      players[index]['score']?.dispose();
+      players[index]['total']?.dispose();
+      nameFocusNodes[index].dispose();
+      scoreFocusNodes[index].dispose();
       players.removeAt(index);
-      focusNodes.removeAt(index);
-      playerCount--; // Decrement the player count
+      nameFocusNodes.removeAt(index);
+      scoreFocusNodes.removeAt(index);
+      playerCount--;
+      emit(RemoveTextField());
       emit(RemoveTextField());
     } else {
-      // Optionally, show a dialog here using showDialog if you want to notify the user.
-      // Example:
       players[index]['name']?.text = '';
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -65,6 +73,7 @@ class TextfieldCubit extends Cubit<TextfieldStates> {
   }
 
   void startGame(BuildContext context) {
+    unfocusAll(context);
     for (int i = 0; i < players.length; i++) {
       if (players[i]['name']?.text.isEmpty ?? true) {
         players[i]['name']?.text = "Player ${i + 1}";
@@ -94,7 +103,8 @@ class TextfieldCubit extends Cubit<TextfieldStates> {
     emit(StartGame());
   }
 
-  void resetScores() {
+  void resetScores(BuildContext context) {
+    unfocusAll(context);
     for (var player in players) {
       player['score']?.text = ""; // Reset score to 0
       player['total']?.text = ""; // Reset total score to 0
@@ -103,7 +113,8 @@ class TextfieldCubit extends Cubit<TextfieldStates> {
     emit(ResetScores());
   }
 
-  void newRound() {
+  void newRound(BuildContext context) {
+    unfocusAll(context);
     for (var player in players) {
       final currentScore = int.tryParse(player['score']?.text ?? "0") ?? 0;
       final total = int.tryParse(player['total']?.text ?? "0") ?? 0;
@@ -118,17 +129,20 @@ class TextfieldCubit extends Cubit<TextfieldStates> {
   }
 
   void homeButton(BuildContext context) {
+    unfocusAll(context);
     for (var player in players) {
-      player['name']?.clear(); // Dispose of the controllers
-      player['score']?.clear();
-      player['total']?.clear();
+      player['name']?.dispose(); // Dispose of the controllers
+      player['score']?.dispose();
+      player['total']?.dispose();
     }
+    initPlayers(2);
     roundCount = 1; // Reset round count
     Navigator.pushNamedAndRemoveUntil(context, 'home', (route) => false);
     emit(HomeButton());
   }
 
   void finalScore(BuildContext context) {
+    unfocusAll(context);
     for (var player in players) {
       final currentScore = int.tryParse(player['score']?.text ?? "0") ?? 0;
       final total = int.tryParse(player['total']?.text ?? "0") ?? 0;
@@ -140,5 +154,10 @@ class TextfieldCubit extends Cubit<TextfieldStates> {
     }
 
     Navigator.pushNamed(context, 'final');
+    emit(FinalScore());
+  }
+
+  void unfocusAll(BuildContext context) {
+    FocusScope.of(context).unfocus();
   }
 }

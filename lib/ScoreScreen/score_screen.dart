@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:score_board/Cubit/textfield_cubit.dart';
 import 'package:score_board/Cubit/textfield_states.dart';
 import 'package:score_board/ScoreScreen/score_screen_builder.dart';
-import 'package:score_board/constants.dart';
+import 'package:score_board/Core/constants.dart';
 
 class ScorePage extends StatelessWidget {
   const ScorePage({super.key});

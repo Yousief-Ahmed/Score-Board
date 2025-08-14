@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:score_board/Cubit/textfield_cubit.dart';
-import 'package:score_board/constants.dart';
+import 'package:score_board/Core/constants.dart';
 
 class StartButton extends StatelessWidget {
   const StartButton({super.key});

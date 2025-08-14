@@ -1,3 +1,4 @@
+
 abstract class TextfieldStates {}
 
 class InitialTextfieldState extends TextfieldStates {}
@@ -13,3 +14,5 @@ class ResetScores extends TextfieldStates {}
 class NewRound extends TextfieldStates {}
 
 class HomeButton extends TextfieldStates {}
+
+class FinalScore extends TextfieldStates {}
