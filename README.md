@@ -18,6 +18,7 @@
   - Splash Screen and App Icon .
   - Responsive design .
 # Screen Shots from the app : 
+<img width="300" height="636" alt="image" src="https://github.com/user-attachments/assets/f4c12012-5bda-4fb5-ae61-528d7431ebfb" />
 <img width="351" height="745" alt="image" src="https://github.com/user-attachments/assets/2f7d8e16-c209-46d1-9a2c-ece12c740fd4" />
 <img width="351" height="745" alt="image" src="https://github.com/user-attachments/assets/0c6d91d2-a6ed-4f1a-bb26-e02c59796256" />
 <img width="351" height="745" alt="image" src="https://github.com/user-attachments/assets/621afe2b-c9ee-4a7b-b050-b48a61ca5813" />
