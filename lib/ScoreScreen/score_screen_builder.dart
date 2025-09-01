@@ -22,12 +22,15 @@ class ScoreScreenBuilder extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              playerName,
-              style: TextStyle(
-                color: Constants.textColor,
-                fontSize: 17.sp,
-                fontWeight: FontWeight.bold,
+            Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Text(
+                playerName,
+                style: TextStyle(
+                  color: Constants.textColor,
+                  fontSize: 17.sp,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             ScoreTextfield(index: index),

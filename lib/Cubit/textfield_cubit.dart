@@ -125,6 +125,21 @@ class TextfieldCubit extends Cubit<TextfieldStates> {
       player['score']?.text = ""; // Clear the score for the new round
     }
     roundCount++;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        duration: Duration(milliseconds: 700),
+        content: Text(
+          "Round $roundCount",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 16.sp,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: Colors.green,
+      ),
+    );
     emit(NewRound());
   }
 

@@ -16,32 +16,34 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(title: Text(Constants.appName)),
       body: ScreenUtilInit(
         builder:
-            (context, child) => Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                spacing: 12.h,
-                children: [
-                  Text(
-                    Constants.playerNameLabel,
+            (context, child) => Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              //spacing: 12.h,
+              children: [
+                SizedBox(height: 8.h),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    Constants.homeTextFieldLabel,
+                    textAlign: TextAlign.center,
                     style: Constants.homeTextStyle,
                   ),
-                  BlocBuilder<TextfieldCubit, TextfieldStates>(
-                    builder: (context, state) {
-                      return Expanded(
-                        child: ListView.builder(
-                          physics: BouncingScrollPhysics(),
-                          shrinkWrap: true,
-                          itemCount: playercubit.players.length + 1,
-                          itemBuilder: (context, index) {
-                            return HomeScreenBuilder(index: index);
-                          },
-                        ),
-                      );
-                    },
-                  ),
-                ],
-              ),
+                ),
+                BlocBuilder<TextfieldCubit, TextfieldStates>(
+                  builder: (context, state) {
+                    return Expanded(
+                      child: ListView.builder(
+                        physics: BouncingScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: playercubit.players.length + 1,
+                        itemBuilder: (context, index) {
+                          return HomeScreenBuilder(index: index);
+                        },
+                      ),
+                    );
+                  },
+                ),
+              ],
             ),
       ),
     );

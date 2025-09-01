@@ -5,7 +5,7 @@ class Constants {
   static const double wideButtonDivisor = 2.2;
   static const double narrowButtonDivisor = 2.4;
   static const String appName = "Score board";
-  static const String playerNameLabel = "Enter Player Name";
+  static const String homeTextFieldLabel = "Enter Player Name";
   static const String startGameButton = "Start Game";
   static const String resetButton = "Reset";
   static const String scoreLabel = "Score : ";

@@ -19,10 +19,10 @@ class ScorePage extends StatelessWidget {
           return ScreenUtilInit(
             builder:
                 (context, child) => Padding(
-                  padding: EdgeInsets.all(16.0),
+                  padding: EdgeInsets.all(8.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    spacing: 12.h,
+                    spacing: 8.h,
                     children: [
                       Text(
                         "Round ${playersCubit.roundCount}",
